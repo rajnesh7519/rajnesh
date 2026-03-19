@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rajnesh Shrestha — Engineer & Robotics Trainer</title>
+  <meta name="description" content="Portfolio of Rajnesh Shrestha — Electronics, Communication, and Information Engineer & Robotics Trainer. Bridging hardware and software through Computer Vision, IoT, Robotics, and AI." />
+  <meta name="keywords" content="Rajnesh Shrestha, Robotics, IoT, Computer Vision, Drones, AI, STEM, Engineer, Python, Electronics" />
+  <meta name="author" content="Rajnesh Shrestha" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            surface: {
+              900: '#0a0a0f',
+              800: '#0e0e16',
+              700: '#12121a',
+              600: '#1a1a2e',
+              500: '#22223a',
+            },
+            accent: {
+              blue: '#3b82f6',
+              'blue-light': '#60a5fa',
+              'blue-glow': '#3b82f680',
+              purple: '#8b5cf6',
+              'purple-light': '#a78bfa',
+              'purple-glow': '#8b5cf680',
+              green: '#10b981',
+              'green-light': '#34d399',
+              'green-glow': '#10b98180',
+            }
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease forwards',
+            'slide-up': 'slideUp 0.6s ease forwards',
+            'slide-left': 'slideLeft 0.6s ease forwards',
+            'slide-right': 'slideRight 0.6s ease forwards',
+            'glow-pulse': 'glowPulse 3s ease-in-out infinite',
+            'blink': 'blink 1s step-end infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'typing': 'typing 2s steps(40, end)',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            slideLeft: {
+              '0%': { opacity: '0', transform: 'translateX(30px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            },
+            slideRight: {
+              '0%': { opacity: '0', transform: 'translateX(-30px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            },
+            glowPulse: {
+              '0%, 100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.15)' },
+              '50%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.3)' },
+            },
+            blink: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            typing: {
+              'from': { width: '0' },
+              'to': { width: '100%' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-surface-900 text-slate-200 font-sans antialiased overflow-x-hidden">
+
+  <!-- ====== NAVIGATION ====== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#hero" class="text-xl font-bold tracking-tight bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">
+          RS<span class="text-accent-blue">.</span>
+        </a>
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#hero" class="nav-link text-sm font-medium text-slate-400 hover:text-white transition-colors duration-300">About</a>
+          <a href="#companies" class="nav-link text-sm font-medium text-slate-400 hover:text-white transition-colors duration-300">Companies</a>
+          <a href="#works" class="nav-link text-sm font-medium text-slate-400 hover:text-white transition-colors duration-300">Works</a>
+          <a href="#gallery" class="nav-link text-sm font-medium text-slate-400 hover:text-white transition-colors duration-300">Gallery</a>
+          <a href="#education" class="nav-link text-sm font-medium text-slate-400 hover:text-white transition-colors duration-300">Education</a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-surface-600 transition-all duration-300" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile Nav -->
+      <div id="mobile-menu" class="md:hidden hidden pb-4">
+        <div class="flex flex-col gap-2 pt-2 border-t border-surface-600">
+          <a href="#hero" class="mobile-nav-link px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-surface-600 transition-all duration-300">About</a>
+          <a href="#companies" class="mobile-nav-link px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-surface-600 transition-all duration-300">Companies</a>
+          <a href="#works" class="mobile-nav-link px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-surface-600 transition-all duration-300">Works</a>
+          <a href="#gallery" class="mobile-nav-link px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-surface-600 transition-all duration-300">Gallery</a>
+          <a href="#education" class="mobile-nav-link px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-surface-600 transition-all duration-300">Education</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== HERO / ABOUT ME ====== -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+    <!-- Background Effects -->
+    <div class="hero-bg-grid absolute inset-0 opacity-[0.03]"></div>
+    <div class="absolute top-1/4 -left-32 w-96 h-96 bg-accent-blue/10 rounded-full blur-[120px] animate-float"></div>
+    <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent-purple/10 rounded-full blur-[120px] animate-float" style="animation-delay: -3s;"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Bio -->
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-accent-blue-light text-xs font-medium mb-6">
+            <span class="w-2 h-2 rounded-full bg-accent-green animate-pulse"></span>
+            Available for collaborations
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+            <span class="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Rajnesh</span>
+            <br />
+            <span class="bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">Shrestha</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-accent-blue-light font-medium mb-4">
+            Electronics, Communication &amp; Information Engineer
+          </p>
+          <p class="text-base text-slate-400 leading-relaxed mb-8 max-w-lg">
+            Bridging the gap between <span class="text-white font-medium">hardware</span> and <span class="text-white font-medium">software</span>. 
+            Specializing in Computer Vision, IoT, and Drone systems — with a passion for training the next generation of engineers through robotics, STEM, and AI education.
+          </p>
+          <!-- Tech Badges -->
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">C</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">Computer Vision</span>
+            <span class="tech-badge">IoT</span>
+            <span class="tech-badge">Drones</span>
+            <span class="tech-badge">Robotics</span>
+            <span class="tech-badge">AI / ML</span>
+          </div>
+          <!-- Social Links (Hero) -->
+          <div class="flex items-center gap-4">
+            <a href="https://github.com/rajnesh7519" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://youtube.com/@engineersvlogs" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Terminal -->
+        <div class="reveal" style="animation-delay: 0.2s;">
+          <div id="terminal" class="terminal-window">
+            <div class="terminal-header">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+              </div>
+              <span class="text-xs text-slate-500 font-mono">rajnesh@portfolio ~ %</span>
+            </div>
+            <div id="terminal-body" class="terminal-body font-mono text-sm">
+              <div class="terminal-line">
+                <span class="text-accent-green">➜</span>
+                <span class="text-accent-blue ml-2">~</span>
+                <span class="text-white ml-2">Type a command:</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-3 mb-4">
+                <button class="terminal-cmd-btn" data-cmd="whoami">whoami</button>
+                <button class="terminal-cmd-btn" data-cmd="skills">skills</button>
+                <button class="terminal-cmd-btn" data-cmd="experience">experience</button>
+              </div>
+              <div id="terminal-output" class="space-y-1"></div>
+              <div class="terminal-line mt-2">
+                <span class="text-accent-green">➜</span>
+                <span class="text-accent-blue ml-2">~</span>
+                <span class="animate-blink text-white ml-2">▋</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== COMPANIES ====== -->
+  <section id="companies" class="relative py-20 md:py-32">
+    <!-- Background circuit pattern -->
+    <div class="absolute inset-0 circuit-bg opacity-[0.02]"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-16 reveal">
+        <p class="text-accent-blue text-sm font-mono font-medium tracking-wider uppercase mb-3">Ventures</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">The Companies I Run</h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Engineers Vlogs -->
+        <div class="company-card group reveal" data-accent="blue">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-blue/5 via-transparent to-accent-blue/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 text-center">
+            <div class="w-24 h-24 rounded-2xl mx-auto mb-6 overflow-hidden border-2 border-accent-blue/20 group-hover:border-accent-blue/50 transition-all duration-300 shadow-lg shadow-accent-blue/5 group-hover:shadow-accent-blue/15">
+              <img src="images/engineers-vlogs-logo.webp" alt="Engineers Vlogs Logo" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Engineers Vlogs</h3>
+            <p class="text-accent-blue-light font-medium text-sm mb-4">Tech Content & Engineering Network</p>
+            <p class="text-slate-400 leading-relaxed mb-6">
+              Empowering the engineering community through high-quality technical content, workshops, and knowledge sharing. Building a network where engineers connect, learn, and grow together.
+            </p>
+            <a href="https://www.engineersvlogs.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-accent-blue/10 border border-accent-blue/20 text-accent-blue-light text-sm font-medium hover:bg-accent-blue/20 hover:border-accent-blue/40 transition-all duration-300 group/btn">
+              Explore More
+              <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- EV Education -->
+        <div class="company-card group reveal" data-accent="purple" style="animation-delay: 0.15s;">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-purple/5 via-transparent to-accent-purple/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 text-center">
+            <div class="w-24 h-24 rounded-2xl mx-auto mb-6 overflow-hidden border-2 border-accent-purple/20 group-hover:border-accent-purple/50 transition-all duration-300 shadow-lg shadow-accent-purple/5 group-hover:shadow-accent-purple/15">
+              <img src="images/ev-education-logo.webp" alt="EV Education Logo" class="w-full h-full object-cover" />
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">EV Education</h3>
+            <p class="text-accent-purple-light font-medium text-sm mb-4">Learning Platform</p>
+            <p class="text-slate-400 leading-relaxed mb-6">
+              Democratizing technical education with hands-on courses in robotics, IoT, and embedded systems. Making complex engineering concepts accessible to learners worldwide.
+            </p>
+            <a href="https://www.facebook.com/eveducation.np" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-accent-purple/10 border border-accent-purple/20 text-accent-purple-light text-sm font-medium hover:bg-accent-purple/20 hover:border-accent-purple/40 transition-all duration-300 group/btn">
+              Explore More
+              <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== WORKS / HORIZONTAL TIMELINE ====== -->
+  <section id="works" class="relative py-20 md:py-32 bg-surface-800/50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <p class="text-accent-blue text-sm font-mono font-medium tracking-wider uppercase mb-3">Journey</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">My Works</h2>
+        <p class="text-slate-400 mt-3 max-w-lg mx-auto">Impact &amp; leadership across robotics, drones, and STEM education.</p>
+        <div class="w-16 h-1 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full mx-auto mt-4"></div>
+      </div>
+
+      <!-- Horizontal Timeline -->
+      <div class="relative">
+        <!-- Horizontal Line -->
+        <div class="hidden md:block absolute top-[2.25rem] left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-blue/40 to-transparent"></div>
+
+        <div class="horizontal-timeline flex flex-col md:flex-row gap-6 md:gap-4 overflow-x-auto pb-4 scrollbar-hide">
+          <!-- Item 1 -->
+          <div class="timeline-h-item reveal flex-shrink-0 w-full md:w-1/5 relative" style="animation-delay:0s;">
+            <div class="hidden md:flex justify-center mb-4">
+              <div class="w-4 h-4 rounded-full bg-accent-blue border-4 border-surface-900 shadow-[0_0_12px_rgba(59,130,246,0.5)] z-10"></div>
+            </div>
+            <div class="timeline-card">
+              <span class="text-accent-blue text-xs font-mono font-medium">Leadership</span>
+              <h3 class="text-base font-bold text-white mt-1.5 leading-snug">Lead Trainer – Kathmandu Skill Fair</h3>
+              <p class="text-slate-400 text-xs mt-2 leading-relaxed">Led hands-on training at Nepal's largest skill development event, introducing participants to robotics and engineering skills.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-h-item reveal flex-shrink-0 w-full md:w-1/5 relative" style="animation-delay:0.1s;">
+            <div class="hidden md:flex justify-center mb-4">
+              <div class="w-4 h-4 rounded-full bg-accent-purple border-4 border-surface-900 shadow-[0_0_12px_rgba(139,92,246,0.5)] z-10"></div>
+            </div>
+            <div class="timeline-card">
+              <span class="text-accent-purple text-xs font-mono font-medium">Mentorship</span>
+              <h3 class="text-base font-bold text-white mt-1.5 leading-snug">Drone Training Mentor</h3>
+              <p class="text-slate-400 text-xs mt-2 leading-relaxed">Mentoring aspiring drone pilots and engineers in drone assembly, programming, and flight dynamics.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-h-item reveal flex-shrink-0 w-full md:w-1/5 relative" style="animation-delay:0.2s;">
+            <div class="hidden md:flex justify-center mb-4">
+              <div class="w-4 h-4 rounded-full bg-accent-green border-4 border-surface-900 shadow-[0_0_12px_rgba(16,185,129,0.5)] z-10"></div>
+            </div>
+            <div class="timeline-card">
+              <span class="text-accent-green text-xs font-mono font-medium">Competition</span>
+              <h3 class="text-base font-bold text-white mt-1.5 leading-snug">Robotics Lead – Int'l Competitions</h3>
+              <p class="text-slate-400 text-xs mt-2 leading-relaxed">Spearheaded teams in international robotics competitions from concept design to competition-ready builds.</p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="timeline-h-item reveal flex-shrink-0 w-full md:w-1/5 relative" style="animation-delay:0.3s;">
+            <div class="hidden md:flex justify-center mb-4">
+              <div class="w-4 h-4 rounded-full bg-accent-blue border-4 border-surface-900 shadow-[0_0_12px_rgba(59,130,246,0.5)] z-10"></div>
+            </div>
+            <div class="timeline-card">
+              <span class="text-accent-blue text-xs font-mono font-medium">Education</span>
+              <h3 class="text-base font-bold text-white mt-1.5 leading-snug">STEM Curriculum Developer</h3>
+              <p class="text-slate-400 text-xs mt-2 leading-relaxed">Designed comprehensive STEM curricula integrating robotics, electronics, and programming.</p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="timeline-h-item reveal flex-shrink-0 w-full md:w-1/5 relative" style="animation-delay:0.4s;">
+            <div class="hidden md:flex justify-center mb-4">
+              <div class="w-4 h-4 rounded-full bg-accent-purple border-4 border-surface-900 shadow-[0_0_12px_rgba(139,92,246,0.5)] z-10"></div>
+            </div>
+            <div class="timeline-card">
+              <span class="text-accent-purple text-xs font-mono font-medium">Publication</span>
+              <h3 class="text-base font-bold text-white mt-1.5 leading-snug">Syllabus Verification – Drone Book</h3>
+              <p class="text-slate-400 text-xs mt-2 leading-relaxed">Technical reviewer and syllabus verification member for a comprehensive drone technology textbook.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== GALLERY ====== -->
+  <section id="gallery" class="relative py-20 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <p class="text-accent-blue text-sm font-mono font-medium tracking-wider uppercase mb-3">Moments</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Picture Gallery</h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full mx-auto mt-4"></div>
+      </div>
+
+      <!-- Filter Tags -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10 reveal">
+        <button class="gallery-tag active" data-filter="all">All</button>
+        <button class="gallery-tag" data-filter="robotics">Robotics Workshops</button>
+        <button class="gallery-tag" data-filter="stem">Teaching STEM</button>
+        <button class="gallery-tag" data-filter="fpv">Drones</button>
+      </div>
+
+      <!-- Masonry Grid -->
+      <div id="gallery-grid" class="masonry-grid">
+        <div class="gallery-item reveal" data-category="robotics">
+          <img src="images/robotics-workshop.webp" alt="Robotics workshop with students assembling robot arms" loading="lazy" class="gallery-img" />
+          <div class="gallery-overlay">
+            <span class="gallery-tag-label">Robotics Workshops</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal" data-category="stem" style="animation-delay:0.05s;">
+          <img src="images/stem-teaching.webp" alt="Teaching STEM concepts to students with circuit boards" loading="lazy" class="gallery-img" />
+          <div class="gallery-overlay">
+            <span class="gallery-tag-label">Teaching STEM</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal" data-category="fpv" style="animation-delay:0.1s;">
+          <img src="images/fpv-drone-flight.webp" alt="FPV racing drone in mid-flight over obstacle course" loading="lazy" class="gallery-img" />
+          <div class="gallery-overlay">
+            <span class="gallery-tag-label">Drones</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal" data-category="robotics" style="animation-delay:0.15s;">
+          <img src="images/robotics-competition.webp" alt="Team presenting robot at international competition" loading="lazy" class="gallery-img" />
+          <div class="gallery-overlay">
+            <span class="gallery-tag-label">Robotics Workshops</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal" data-category="stem" style="animation-delay:0.2s;">
+          <img src="images/stem-lab.webp" alt="Students in STEM lab working with microcontrollers" loading="lazy" class="gallery-img" />
+          <div class="gallery-overlay">
+            <span class="gallery-tag-label">Teaching STEM</span>
+          </div>
+        </div>
+        <div class="gallery-item reveal" data-category="fpv" style="animation-delay:0.25s;">
+          <img src="images/drone-build.webp" alt="Close-up of a custom-built FPV racing drone" loading="lazy" class="gallery-img" />
+          <div class="gallery-overlay">
+            <span class="gallery-tag-label">Drones</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== LIGHTBOX MODAL ====== -->
+  <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-sm cursor-zoom-out" role="dialog" aria-label="Image lightbox">
+    <button id="lightbox-close" class="absolute top-4 right-4 p-2 text-white/70 hover:text-white transition-colors z-10" aria-label="Close lightbox">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[85vh] object-contain rounded-lg shadow-2xl transform transition-transform duration-300 scale-95" />
+  </div>
+
+  <!-- ====== EDUCATION ====== -->
+  <section id="education" class="relative py-20 md:py-32 bg-surface-800/50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <p class="text-accent-blue text-sm font-mono font-medium tracking-wider uppercase mb-3">Foundation</p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Education</h2>
+        <div class="w-16 h-1 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full mx-auto mt-4"></div>
+      </div>
+
+      <div class="space-y-6">
+        <!-- BE Degree -->
+        <div class="reveal">
+          <div class="education-card group">
+            <div class="flex items-start gap-5">
+              <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 border border-accent-blue/20 flex items-center justify-center group-hover:border-accent-blue/40 transition-all duration-300">
+                <svg class="w-7 h-7 text-accent-blue-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1">
+                  <h3 class="text-lg font-bold text-white">BE in Electronics, Communication &amp; Information Engineering</h3>
+                  <span class="text-accent-green text-xs font-mono font-medium bg-accent-green/10 px-2 py-0.5 rounded-md w-fit">Completed 2023</span>
+                </div>
+                <p class="text-accent-blue-light text-sm font-medium">Kathmandu Engineering College</p>
+                <p class="text-slate-500 text-xs mb-3">Tribhuvan University, Nepal</p>
+                <p class="text-slate-400 text-sm leading-relaxed">A rigorous engineering program blending analog &amp; digital electronics, telecommunications, signal processing, and information systems — providing the deep technical foundation that powers everything I build.</p>
+              </div>
+            </div>
+            <div class="absolute bottom-0 right-0 w-48 h-48 opacity-[0.03]">
+              <svg viewBox="0 0 200 200" fill="none" class="w-full h-full"><path d="M0 100h60l20-20h40l20 20h60M100 0v60l-20 20v40l20 20v60" stroke="currentColor" stroke-width="2"/><circle cx="80" cy="80" r="4" fill="currentColor"/><circle cx="120" cy="120" r="4" fill="currentColor"/><circle cx="100" cy="100" r="6" fill="currentColor"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- High School -->
+        <div class="reveal" style="animation-delay: 0.15s;">
+          <div class="education-card group">
+            <div class="flex items-start gap-5">
+              <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-green/20 border border-accent-purple/20 flex items-center justify-center group-hover:border-accent-purple/40 transition-all duration-300">
+                <svg class="w-7 h-7 text-accent-purple-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1">
+                  <h3 class="text-lg font-bold text-white">High School (Science)</h3>
+                  <span class="text-accent-green text-xs font-mono font-medium bg-accent-green/10 px-2 py-0.5 rounded-md w-fit">Completed 2018</span>
+                </div>
+                <p class="text-accent-purple-light text-sm font-medium">Trinity International College</p>
+                <p class="text-slate-400 text-sm leading-relaxed mt-2">Science stream with a strong foundation in mathematics, physics, and chemistry — laying the groundwork for engineering excellence.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer id="footer" class="relative border-t border-surface-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-slate-500">
+          &copy; <span id="year"></span> Rajnesh Shrestha. Crafted with precision.
+        </p>
+        <div class="flex items-center gap-5">
+          <a href="https://github.com/rajnesh7519" target="_blank" rel="noopener" class="text-slate-500 hover:text-accent-blue transition-colors duration-300" aria-label="GitHub">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="text-slate-500 hover:text-accent-blue transition-colors duration-300" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://youtube.com/@engineersvlogs" target="_blank" rel="noopener" class="text-slate-500 hover:text-accent-blue transition-colors duration-300" aria-label="YouTube">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
